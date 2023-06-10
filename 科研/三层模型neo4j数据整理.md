@@ -179,6 +179,84 @@ docker run --rm -it -v /root/zhangkai/djc/data/:/data neo4j:3.5.35-community /bi
 
 
 
+***
+
+
+
+1.电脑
+
+```
+docker run -it -d --name computer_neo4j -p 17474:7474 -p 17687:7687 -v /home/neo4jData/computer/neo4j_data/:/data -v /home/neo4jData/computer/neo4j_import/:/var/lib/neo4j/import -v /home/neo4jData/computer/neo4j_conf:/var/lib/neo4j/conf neo4j:4.4.12
+```
+
+
+
+```
+docker run --rm -it -v /home/neo4jData/computer/neo4j_data:/data neo4j:4.4.12 /bin/bash
+```
+
+
+
+```
+neo4j-admin load --from=/data/computer.dump --database=neo4j --force
+```
+
+
+
+![image-20230428154532553](https://raw.githubusercontent.com/kaikaihit/kaiPic/main/x1Nano/image-20230428154532553.png)
+
+
+
+```
+dbms.allow_upgrade=true
+```
+
+
+
+```
+172.18.11.41:17474
+bolt:172.18.11.41:17687
+neo4j/tianxin@123
+```
+
+
+
+2.面辅料
+
+```
+docker run -it -d --name fabric_neo4j -p 27474:7474 -p 27687:7687 -v /home/neo4jData/fabric/neo4j_data/:/data -v /home/neo4jData/fabric/neo4j_import/:/var/lib/neo4j/import -v /home/neo4jData/fabric/neo4j_conf:/var/lib/neo4j/conf neo4j:4.4.12
+```
+
+
+
+```
+172.18.11.41:27474
+bolt:172.18.11.41:27687
+neo4j/tianxin@123
+```
+
+
+
+
+
+3.衣服
+
+```
+docker run -it -d --name clothing_neo4j -p 37474:7474 -p 37687:7687 -v /home/neo4jData/clothing/neo4j_data/:/data -v /home/neo4jData/clothing/neo4j_import/:/var/lib/neo4j/import -v /home/neo4jData/clothing/neo4j_conf:/var/lib/neo4j/conf neo4j:4.4.12
+```
+
+
+
+4.渔具
+
+
+
+```
+docker run -it -d --name fishing_neo4j -p 47474:7474 -p 47687:7687 -v /home/neo4jData/fishing/neo4j_data/:/data -v /home/neo4jData/fishing/neo4j_import/:/var/lib/neo4j/import -v /home/neo4jData/fishing/neo4j_conf:/var/lib/neo4j/conf neo4j:4.4.12
+```
+
+
+
 
 
 
